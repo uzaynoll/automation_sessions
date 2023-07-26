@@ -8,9 +8,9 @@ public class Dashboard {
         this.driver = driver;
     }
 
-    public String findCurrentUrl(){
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        String currentURL = driver.getCurrentUrl();
-        return currentURL;
+    public String findCurrentUrl() throws InterruptedException {
+        Thread.sleep(5000);
+//        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+        return driver.getCurrentUrl();
     }
 }

@@ -1,16 +1,31 @@
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class testLoginPage extends testSetup {
-    @Test
-    public void testToVerifyCurrentUrlAfterLogin(){
+
+    @DataProvider(name = "Login Credentials")
+    public Object[][] credentials() throws Exception {
+        Object[][] testObjArray = ExcelUtils.getLoginCredential("C://Users//ujjwa//OneDrive//Desktop//logindata.xlsx","Sheet1");
+        return testObjArray;
+//        return new Object[][]{
+//                {"ctznbnk","ujjwal.khanal@citytech.global","invalid"},
+//                {"ctznbnk","invalid@citytech.global","invalid"},
+//                {"ctznbnk","invalid@citytech.global","Test@123"},
+//                {"ctznbnk","ujjwalkomail@yopmail.com","Test@123"},
+//        };
+    }
+    @Test(dataProvider = "Login Credentials")
+    public void testToVerifyCurrentUrlAfterLogin(String institutionId,String username, String password) throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
-        loginPage.enterUsername("QAINTERNTEST@YOPMAIL.COM");
-        loginPage.enterPassword("TEST@123");
+        loginPage.enterInstitutionId(institutionId);
+        loginPage.enterUsername(username);
+        loginPage.enterPassword(password);
         loginPage.loginButton();
         String currentURL = dashboard.findCurrentUrl();
-        String expectedURL = "https://qa.citytech.global/finpos/merchant-portal/#/dashboard";
+        String expectedURL = "https://getpay.finpos.global/qa/bank-portal/#/dashboard";
         Assert.assertEquals(currentURL,expectedURL);
     }
+
 }

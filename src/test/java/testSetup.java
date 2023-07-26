@@ -4,17 +4,21 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import java.util.concurrent.TimeUnit;
+
 public class testSetup {
     WebDriver driver;
     @BeforeMethod
     public void driverSetup(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
-        driver.get("https://qa.citytech.global/finpos/merchant-portal/#/");
+        driver.manage().window().maximize();
+        driver.get("https://getpay.finpos.global/qa/bank-portal/#/");
+        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
     }
 
-    @AfterMethod
-    public void tearDown(){
-        driver.quit();
-    }
+//    @AfterMethod
+//    public void tearDown(){
+//        driver.quit();
+//    }
 }

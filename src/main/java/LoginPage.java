@@ -6,29 +6,36 @@ import org.openqa.selenium.support.PageFactory;
 public class LoginPage {
     WebDriver driver;
 
-    @FindBy(id = "userId")
-    WebElement elementuserID;
+    @FindBy(id = ":r0:")
+    WebElement elementInstitutionId;
 
-    @FindBy(id = "password")
-    WebElement elementpassword;
+    @FindBy(id = ":r1:")
+    WebElement elementUsername;
 
-    @FindBy(css = ".btn-custom-field")
-    WebElement elementloginButton;
+    @FindBy(id = ":r2:")
+    WebElement elementPassword;
+
+    @FindBy(css = ".css-fuxpcq")
+    WebElement elementLoginButton;
 
     public LoginPage(WebDriver driver){
         PageFactory.initElements(driver,this);
         this.driver =  driver;
     }
 
-    public void enterUsername(String username) {
-        elementuserID.sendKeys(username);
+    public void enterInstitutionId(String institutionId) {
+        elementInstitutionId.sendKeys(institutionId);
     }
 
-    public void enterPassword(String password) {
-        elementpassword.sendKeys(password);
+    public void enterUsername(String username) {
+        elementUsername.sendKeys(username);
+    }
+
+    public void enterPassword(String password){
+        elementPassword.sendKeys(password);
     }
 
     public void loginButton(){
-        elementloginButton.click();
+        elementLoginButton.click();
     }
 }
