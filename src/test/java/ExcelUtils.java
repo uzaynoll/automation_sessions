@@ -15,7 +15,7 @@ public class ExcelUtils {
     private static XSSFRow Row;
 
 
-    public static Object[][] getLoginCredential(String Filepath, String Sheetname) throws Exception {
+    public static Object[][] getExcelData(String Filepath, String Sheetname) throws Exception {
         String[][] tabArray = null;
         try {
             FileInputStream ExcelFile = new FileInputStream(Filepath);
@@ -28,7 +28,7 @@ public class ExcelUtils {
             int ci ,cj;
 
             int totalRows = ExcelSheet.getLastRowNum();
-            int totalColumns = 3;
+            int totalColumns = 4;
 
             tabArray = new String[totalRows][totalColumns];
             ci = 0;
@@ -50,18 +50,21 @@ public class ExcelUtils {
         return(tabArray);
     }
     public static String getCellData(int row, int column) throws Exception{
-        try{
+        try {
             Cell = ExcelSheet.getRow(row).getCell(column);
             CellType dataType = Cell.getCellType();
 
             switch (dataType) {
-                case ERROR:
-                    return "";
+                case STRING:
+                    String stringCellData = Cell.getStringCellValue();
+                    return stringCellData;
+                case NUMERIC:
+                    double numericCellData = Cell.getNumericCellValue();
+                    String formattedValue = String.format("%.0f", numericCellData);
+                    return String.valueOf(formattedValue);
                 default:
-                    String CellData = Cell.getStringCellValue();
-                    return CellData;
+                    return "";
             }
-
         }catch (Exception e){
             System.out.println(e.getMessage());
             throw(e);

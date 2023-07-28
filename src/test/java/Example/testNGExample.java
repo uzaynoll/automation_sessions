@@ -1,3 +1,5 @@
+package Example;
+
 import org.testng.annotations.*;
 
 public class testNGExample {

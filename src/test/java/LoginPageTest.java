@@ -1,12 +1,12 @@
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
-public class testLoginPage extends testSetup {
-
+public class LoginPageTest extends testSetup {
     @DataProvider(name = "Login Credentials")
     public Object[][] credentials() throws Exception {
-        Object[][] testObjArray = ExcelUtils.getLoginCredential("C://Users//ujjwa//OneDrive//Desktop//logindata.xlsx","Sheet1");
+        Object[][] testObjArray = ExcelUtils.getExcelData("C://Users//ujjwa//OneDrive//Desktop//logindata.xlsx","Sheet1");
         return testObjArray;
 //        return new Object[][]{
 //                {"ctznbnk","ujjwal.khanal@citytech.global","invalid"},
@@ -27,5 +27,4 @@ public class testLoginPage extends testSetup {
         String expectedURL = "https://getpay.finpos.global/qa/bank-portal/#/dashboard";
         Assert.assertEquals(currentURL,expectedURL);
     }
-
 }
