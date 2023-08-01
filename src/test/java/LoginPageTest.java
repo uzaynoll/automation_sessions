@@ -1,8 +1,11 @@
+import io.qameta.allure.*;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+@Epic("BankPortal Login")
+@Feature("Login")
 public class LoginPageTest extends testSetup {
     @DataProvider(name = "Login Credentials")
     public Object[][] credentials() throws Exception {
@@ -16,6 +19,9 @@ public class LoginPageTest extends testSetup {
 //        };
     }
     @Test(dataProvider = "Login Credentials")
+    @Description("Verify login")
+    @Severity(SeverityLevel.CRITICAL)
+    @Attachment(value = "Page screenshot", type = "image/png")
     public void testToVerifyCurrentUrlAfterLogin(String institutionId,String username, String password) throws InterruptedException {
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);
