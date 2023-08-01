@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Automation Suite" parallel="tests" thread-count="2">
+    <!--    <listeners>-->
+    <!--        <listener class-name="Listeners.MyListener"></listener>-->
+    <!--    </listeners>-->
+    <parameter name="configFile" value="test-data.xml"/>
+    <test name="ALL TEST FOR CHROME1" verbose="2">
+        <parameter name="grid" value="true"/>
+        <parameter name="browser" value="chrome"/>
+        <parameter name="platform" value="WIN10"/>
+        <classes>
+            <class name="LoginPageTest">
+                <methods>
+                    <include name="testToVerifyCurrentUrlAfterLogin"/>
+                </methods>
+            </class>
+            <class name="DashboardTest">
+                <methods>
+                    <exclude name="testToVerifyMenuItems"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

@@ -12,7 +12,7 @@ public class OnboardingTest extends testSetup{
     }
 
     @Test(dataProvider = "Onboarding Data")
-    public void verifyOnboarding(String name, String businessName, String ownershipType, String contactNumber){
+    public void verifyOnboarding(String name, String businessName, String ownershipType, String contactNumber, String paymentAcceptingPoint){
 
         String[] ownershipTypes = {"Sole Proprietorship","Partnership","Private Limited","Public Limited","Government","Non Profit Organizations"};
 
@@ -34,5 +34,6 @@ public class OnboardingTest extends testSetup{
         onboardingProcess.fillUpGeneralInfo(name,businessName,ownershipType,contactNumber);
         Assert.assertFalse(onboardingProcess.checkPopupErrorMessage(),"Error Encountered");
         Assert.assertFalse(onboardingProcess.invalidInputErrorCheck(),"The provided input is invalid. Please enter a valid input and try again.");
+        onboardingProcess.paymentAcceptingPoints(paymentAcceptingPoint);
     }
 }

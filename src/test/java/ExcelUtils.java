@@ -28,7 +28,7 @@ public class ExcelUtils {
             int ci ,cj;
 
             int totalRows = ExcelSheet.getLastRowNum();
-            int totalColumns = 4;
+            int totalColumns = 3;
 
             tabArray = new String[totalRows][totalColumns];
             ci = 0;

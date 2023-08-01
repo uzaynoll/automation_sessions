@@ -34,6 +34,9 @@ public class OnboardingProcess {
     @FindBy(xpath = "//div[@id=\"snack\"]")
     List<WebElement> popupErrorMessage;
 
+    @FindBy(xpath = "//label[@class=\"MuiFormControlLabel-root MuiFormControlLabel-labelPlacementEnd css-1jaw3da\"]")
+    List<WebElement> paymentAcceptingPointsCheckbox;
+
     public OnboardingProcess(WebDriver driver) {
         PageFactory.initElements(driver, this);
         this.driver = driver;
@@ -79,4 +82,11 @@ public class OnboardingProcess {
         saveAndContinue.click();
     }
 
+    public void paymentAcceptingPoints(String paymentAcceptingPointToCheck){
+        for (WebElement paymentAcceptingPoint : paymentAcceptingPointsCheckbox){
+            if(paymentAcceptingPoint.getText().equalsIgnoreCase(paymentAcceptingPointToCheck)){
+                paymentAcceptingPoint.click();
+            }
+        }
+    }
 }
