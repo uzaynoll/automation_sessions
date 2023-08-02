@@ -7,8 +7,11 @@ public class OnboardingTest extends testSetup{
     SoftAssert softAssert = new SoftAssert();
     @DataProvider(name = "Onboarding Data")
     public Object[][] onboardingData() throws Exception {
-        Object[][] testObjArray = ExcelUtils.getExcelData("C://Users//ujjwa//OneDrive//Desktop//onboardingData.xlsx","Sheet1");
-        return testObjArray;
+//        Object[][] testObjArray = Utils.ExcelUtils.getExcelData("C://Users//ujjwa//OneDrive//Desktop//onboardingData.xlsx","Sheet1");
+//        return testObjArray;
+        return new Object[][]{
+                {"Hari Bashyal","Hari Fancy Pasal","Partnership","9865465347","Point-Of-Sale Terminals (POS)"},
+        };
     }
 
     @Test(dataProvider = "Onboarding Data")

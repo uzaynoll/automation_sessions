@@ -6,7 +6,6 @@ public class MerchantApplicationTest extends testSetup{
     SoftAssert softAssert = new SoftAssert();
     @Test
     public void verifyDonutCharts(){
-        String[] DonutChartItems = {"Draft","In-Review","Request for Change","In Approval", "Total Applications"};
 
         LoginPage loginPage = new LoginPage(driver);
         Dashboard dashboard = new Dashboard(driver);

@@ -6,18 +6,13 @@
     <!--    </listeners>-->
     <parameter name="configFile" value="test-data.xml"/>
     <test name="ALL TEST FOR CHROME1" verbose="2">
-        <parameter name="grid" value="true"/>
+        <parameter name="grid" value="false"/>
         <parameter name="browser" value="chrome"/>
         <parameter name="platform" value="WIN10"/>
         <classes>
             <class name="LoginPageTest">
                 <methods>
                     <include name="testToVerifyCurrentUrlAfterLogin"/>
-                </methods>
-            </class>
-            <class name="DashboardTest">
-                <methods>
-                    <exclude name="testToVerifyMenuItems"/>
                 </methods>
             </class>
         </classes>

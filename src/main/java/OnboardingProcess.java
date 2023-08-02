@@ -28,7 +28,7 @@ public class OnboardingProcess {
     @FindBy(css = ".css-1fjovvv")
     WebElement cancel;
 
-    @FindBy(xpath = "//p[@class=\"MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained Mui-required css-v7esy\"]")
+    @FindBy(xpath = "//p[@class=\"MuiFormHelperText-root Mui-error MuiFormHelperText-sizeMedium MuiFormHelperText-contained MuiFormHelperText-filled Mui-required css-v7esy\"]")
     List<WebElement> invalidInputErrorMessage;
 
     @FindBy(xpath = "//div[@id=\"snack\"]")

@@ -1,3 +1,5 @@
+package Utils;
+
 import org.apache.poi.ss.usermodel.CellType;
 import org.apache.poi.xssf.usermodel.XSSFCell;
 import org.apache.poi.xssf.usermodel.XSSFRow;
@@ -28,7 +30,7 @@ public class ExcelUtils {
             int ci ,cj;
 
             int totalRows = ExcelSheet.getLastRowNum();
-            int totalColumns = 3;
+            int totalColumns = 5;
 
             tabArray = new String[totalRows][totalColumns];
             ci = 0;
